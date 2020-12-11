@@ -485,6 +485,9 @@ GameObject:
   - component: {fileID: 3649050723600362763}
   - component: {fileID: 3649050722857703644}
   - component: {fileID: 3649050722857703643}
+  - component: {fileID: 5199748743673247960}
+  - component: {fileID: -8807583120969142469}
+  - component: {fileID: -6155287318142400121}
   m_Layer: 0
   m_Name: Space Dreadnought 05
   m_TagString: FinalBoss
@@ -550,6 +553,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a560c464dd45b1b49b2ed61ecce975b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hp: 0
+  _speed: 6
+  _points: 100
+  _explosionScale: 1
+  _player: {fileID: 0}
+  _playerScore: {fileID: 0}
+  _explosionAnim: {fileID: 0}
+  _enemyWeapon: {fileID: 0}
+  _powerUpPrefab: {fileID: 0}
+  _weaponPos: {fileID: 0}
+  _fireCD: 0
+  _fireRate: 2
+  _beamHit: 0
+  _onScreen: 0
+  _dying: 0
+  _iFrameTime: 0.2
+  _beamDamage: 1
   _maxHp: 100
   _curHp: 0
   _speed: 6
@@ -572,6 +592,48 @@ MonoBehaviour:
   _bombPrefab: {fileID: 939611514574070289, guid: e7bcbaf624526c243a6e5e85d1b11c3d,
     type: 3}
   _curBombSpawn: {fileID: 0}
+--- !u!54 &5199748743673247960
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649050723600265515}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &-8807583120969142469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649050723600265515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.120376, y: 0.51341224, z: 2.8724012}
+  m_Center: {x: 0.39912117, y: 0.0022701793, z: 0.0190085}
+--- !u!65 &-6155287318142400121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649050723600265515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8235197, y: 1.4845854, z: 1}
+  m_Center: {x: -1.1710993, y: 0.34286964, z: -0}
 --- !u!1 &3649050723638820978
 GameObject:
   m_ObjectHideFlags: 0
