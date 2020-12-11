@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,10 +13,19 @@ public class MainMenu : MonoBehaviour
     private AudioMixer _audioMixer;
     [SerializeField]
     private AudioClip _menuMusic;
+    [SerializeField]
+    private Image _brightness;
+    private float _savedVolume;
+    private float _savedBrightness;
+    [SerializeField]
+    private Slider _volumeSlider;
+    [SerializeField]
+    private Slider _brightnessSlider;
 
     private void Start()
     {
         AudioManager.Instance.PlayMusic(_menuMusic, 1f);
+        UpdateSliders();
     }
 
     public void StartGame()
@@ -43,17 +53,26 @@ public class MainMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         _audioMixer.SetFloat("Volume", volume);
+        PlayerPrefs.SetFloat("Volume", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetBrightness(float brightness)
     {
-        RenderSettings.ambientLight = new Color(brightness, brightness, brightness);
+        _brightness.color = new Color(255, 255, 255, brightness);
+        PlayerPrefs.SetFloat("Brightness", brightness);
+        PlayerPrefs.Save();
     }
-    //set brightness (post-processing)
 
-    public float _brightness;
-    private void Update()
+    private void UpdateSliders()
     {
-        RenderSettings.ambientLight = new Color(_brightness, _brightness, _brightness, 1);
+        _savedVolume = PlayerPrefs.GetFloat("Volume");
+        _savedBrightness = PlayerPrefs.GetFloat("Brightness");
+
+        _volumeSlider.value = _savedVolume;
+        _brightnessSlider.value = _savedBrightness;
+
+        SetBrightness(_savedBrightness);
+        SetVolume(_savedVolume);
     }
 }

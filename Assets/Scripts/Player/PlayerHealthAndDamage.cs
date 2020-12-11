@@ -6,16 +6,23 @@ public class PlayerHealthAndDamage : MonoBehaviour
 {
     [SerializeField]
     public float health = 1;
-
     [SerializeField]
     public float maximumHealth = 1;
 
-    private PlayerWeaponsFire _playerWeapon;
+    [SerializeField]
+    private GameObject _explosionAnim;
 
+    private PlayerWeaponsFire _playerWeapon;
+    private SpawnManager _spawnManager;
     private void Start()
     {
-        _playerWeapon = GameObject.Find("Player").GetComponent<PlayerWeaponsFire>();
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        if (_spawnManager == null)
+        {
+            Debug.LogError("Missing Spawn Manager");
+        }
 
+        _playerWeapon = GameObject.Find("Player").GetComponent<PlayerWeaponsFire>();
         if (_playerWeapon == null)
         {
             Debug.LogError("Player Weapon is NULL");
@@ -25,18 +32,21 @@ public class PlayerHealthAndDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //PlayerDamageTest();
+
     }
 
 
     public void PlayerDamage()
     {
         health -= .5f;
-        _playerWeapon._weaponPowerUpID = 0;
+        _playerWeapon._weaponPowerLevel = 0;
+        _playerWeapon.UpdateWeaponLevel();
 
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            health = 5f;
+            Instantiate(_explosionAnim, transform.position, Quaternion.identity);           
         }
     }
 
@@ -46,9 +56,13 @@ public class PlayerHealthAndDamage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             PlayerDamage();
-            Debug.Log("Health= " + health);
+            //Debug.Log("Health= " + health);
         }
     }
 
+    public bool getPlayerStatus()
+    {
+        return this.gameObject.activeSelf;
+    }
 }
 

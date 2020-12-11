@@ -22,18 +22,20 @@ public class BigSlowEnemy : EnemyAbstractClass
 
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        _hp = 100f;
+        base.Start();
+        _hp = 50f;
         Instantiate(_powerUpPrefab, transform.position, Quaternion.identity);
-    }
+    }    
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         WeaponFire();
-      
     }
+   
 
     protected override void WeaponFire()
     {

@@ -1,5 +1,7 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
+=======
 --- !u!1102 &-2136336678191163339
 AnimatorState:
   serializedVersion: 5
@@ -26,6 +28,7 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+>>>>>>> dev
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -35,6 +38,9 @@ AnimatorController:
   m_Name: Fast_Enemy
   serializedVersion: 5
   m_AnimatorParameters: []
+<<<<<<< HEAD
+  m_AnimatorLayers: []
+=======
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -70,3 +76,4 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -2136336678191163339}
+>>>>>>> dev

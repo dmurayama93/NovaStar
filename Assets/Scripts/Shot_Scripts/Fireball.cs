@@ -71,6 +71,7 @@ public class Fireball : MonoBehaviour
     {
         if (other.tag == "Enemy" && _isEnemyShot != true)
         {
+            Debug.Log("Enemy hit detected");
             EnemyAbstractClass enemy = other.GetComponent<EnemyAbstractClass>();
 
             if (enemy != null)
