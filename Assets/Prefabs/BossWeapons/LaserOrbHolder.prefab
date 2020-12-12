@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 742676101454750296}
   m_Layer: 0
   m_Name: LaserOrbHolder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 742676101454750296}
     m_Modifications:
+    - target: {fileID: 8387765747179037833, guid: a5fa410b7c8c4ac459d14ec11184efbc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387765747701137905, guid: a5fa410b7c8c4ac459d14ec11184efbc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8749789496689623929, guid: a5fa410b7c8c4ac459d14ec11184efbc,
         type: 3}
       propertyPath: m_Name

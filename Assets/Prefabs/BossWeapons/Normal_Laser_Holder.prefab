@@ -107,6 +107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 4751846129131514240, guid: 9eda0155c42645746a2a074e49d13318,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4751846129131514241, guid: 9eda0155c42645746a2a074e49d13318,
         type: 3}
       propertyPath: m_Enabled
